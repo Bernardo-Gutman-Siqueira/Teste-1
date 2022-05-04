@@ -4,7 +4,7 @@ programa
 	funcao inicio()
 	{
 	cadeia pularT
-	inteiro saldo = 2500
+	inteiro saldo = 9999
 	inteiro aposta
 	inteiro nn1
 	inteiro nnA //Números número aleatório
@@ -57,14 +57,16 @@ programa
 			}
 	}senao se(resp == "pv"){
 		limpa()
-		escreva("Deseja apostar no preto ou vermelho (p) ou (v) ? ")
-		leia(resp)
-		limpa()
+		enquanto(resp != "p" e resp != "P" e resp != "v" e resp != "V"){
+			escreva("Deseja apostar no preto ou vermelho (p) ou (v) ? ")
+			leia(resp)
+			limpa()
+		}
 		escreva("Saldo = ",saldo,"\n")
 		escreva("Quanto deseja apostar ?")
 		leia(aposta)
 		limpa()
-		se(resp == "p" e resp == "v" e aposta <= saldo){
+		se(aposta <= saldo ){
 			nCor = sorteia(0, 36)
 			se(nCor == 0){
 				escreva("Cor verde,você perdeu ",aposta)
@@ -89,7 +91,7 @@ programa
 					}
 			}
 	}senao{
-		escreva("Cor ou saldo inválido")
+		escreva("Saldo inválido")
 	}
 	}
 	
